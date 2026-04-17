@@ -1,0 +1,5 @@
+n_molecules: 400
+n_unique_scaffolds: 132
+random_split: R2=0.5364, RMSE=0.4721, MAE=0.3584, n_test=80
+scaffold_split: R2=0.5125, RMSE=0.5135, MAE=0.3807, n_test=108
+recommended_metric_for_reporting: scaffold_split

@@ -1,0 +1,40 @@
+{
+  "target": "KRAS",
+  "cache_only": true,
+  "receptor": "protein/kras.pdbqt",
+  "source_pdb": "protein/KRAS_G12C.pdb",
+  "status": "completed-with-docking",
+  "data_source": "cache-only",
+  "n_training_molecules": 400,
+  "model_metrics": {
+    "n_molecules": 400,
+    "n_unique_scaffolds": 132,
+    "random_split": {
+      "r2": 0.5363714134091666,
+      "rmse": 0.47212718471816256,
+      "mae": 0.3583985317726646,
+      "n_test": 80
+    },
+    "scaffold_split": {
+      "r2": 0.5124839938355175,
+      "rmse": 0.513475405918017,
+      "mae": 0.3807484776997273,
+      "n_test": 108
+    },
+    "recommended_metric_for_reporting": "scaffold_split"
+  },
+  "n_generated_candidates": 400,
+  "n_ranked_candidates": 57,
+  "docking_box": {
+    "center_x": 2.7426329113924055,
+    "center_y": -6.322911392405063,
+    "center_z": 3.292000000000001,
+    "size_x": 26.0,
+    "size_y": 26.0,
+    "size_z": 19.247999999999998,
+    "source": "kras-site-residues-approx"
+  },
+  "docking_performed": true,
+  "n_docked": 20,
+  "top_output": "combined prediction + docking ranking"
+}
