@@ -1,4 +1,6 @@
-# Drug Pipe
+# AI Drug Discovery Pipeline
+
+AI-driven drug discovery pipeline integrating molecular modeling, machine learning, and virtual screening.
 
 This project is a prototype AI-guided small-molecule discovery workflow for `KRAS`.
 It is useful as a reproducible demo pipeline, but it is not a substitute for a fully validated medicinal chemistry campaign.
@@ -78,3 +80,7 @@ Run with manual docking box:
 3. Add external test sets or time-split validation.
 4. Add stronger medicinal chemistry filters and synthetic accessibility scoring.
 5. Add downstream refinement such as rescoring, MD, or free-energy calculations.
+=======
+# ai-drug-discovery-pipeline
+AI-driven drug discovery pipeline integrating molecular modeling, machine learning, and virtual screening for lead optimization.
+>>>>>>> fc771a03f6871a03f08fc1f2766dd1eead4245be
