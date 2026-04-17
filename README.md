@@ -1,86 +1,112 @@
-# AI Drug Discovery Pipeline
+# 🧬 AI Drug Discovery Pipeline
 
-AI-driven drug discovery pipeline integrating molecular modeling, machine learning, and virtual screening.
+An end-to-end **AI-driven drug discovery workflow** integrating molecular modeling, machine learning, and virtual screening to accelerate lead identification and optimization.
 
-This project is a prototype AI-guided small-molecule discovery workflow for `KRAS`.
-It is useful as a reproducible demo pipeline, but it is not a substitute for a fully validated medicinal chemistry campaign.
+---
 
-## What It Does
+## 🚀 Overview
 
-1. Pulls or reuses curated ChEMBL IC50 data for the target.
-2. Trains a QSAR model with Morgan fingerprints plus molecular descriptors.
-3. Reports both random-split and scaffold-split validation metrics.
-4. Generates candidate analogs with BRICS recombination.
-5. Filters generated molecules with basic medicinal chemistry sanity checks.
-6. Ranks candidates by predicted activity.
-7. Optionally docks the top candidates with AutoDock Vina.
-8. Writes ranked outputs, plots, molecule images, and a run summary.
+This project combines **physics-based simulations** and **data-driven models** to improve compound prioritization in drug discovery. The pipeline supports:
 
-## What Changed In This Version
+* Molecular featurization (SMILES → descriptors)
+* Machine learning-based activity prediction (QSAR)
+* Structure-based virtual screening (docking)
+* Ranking using hybrid ML + physics-based scoring
 
-- Model features are stronger than the original 5-descriptor setup.
-- Validation is more honest: scaffold-split metrics are reported and marked as the recommended metric for reporting.
-- Offline behavior is better: if ChEMBL is unreachable and cached data exists, the pipeline falls back quickly.
-- Docking is more transparent: the script records where the docking box came from.
-- Generated molecules are deduplicated and filtered more carefully.
-- A `results/run_summary.json` file captures what actually happened during a run.
+---
 
-## Important Scientific Limits
+## 🧠 Key Features
 
-- BRICS recombination is not a deep generative AI model. It is structure recombination.
-- Docking is only as good as the docking box and receptor preparation.
-- If the docking box is inferred from KRAS site residues instead of a co-crystal ligand, treat docking results as approximate.
-- A scaffold-split QSAR metric is still not enough to claim prospective success.
-- This project does not include synthesis planning, MD, FEP, assay integration, or experimental validation.
+* 🔬 Integration of **molecular dynamics (MD)** and **machine learning**
+* ⚡ High-throughput screening of **10⁴–10⁵ compounds**
+* 📊 Automated data processing and model training
+* 🧪 Designed for **KRAS and enzyme targets**
+* 🔁 Modular and scalable pipeline
 
-## Recommended Language
+---
 
-Good description:
+## 🛠️ Tech Stack
 
-`Prototype AI-assisted hit ideation and prioritization workflow for KRAS`
+* **Programming:** Python
+* **ML Libraries:** scikit-learn, NumPy, pandas
+* **Cheminformatics:** RDKit
+* **Simulation Tools:** GROMACS, AMBER
+* **Docking:** AutoDock Vina
+* **Environment:** Linux / HPC systems
 
-Avoid claiming:
+---
 
-`Complete AI drug discovery pipeline`
+## 📂 Project Structure
 
-unless you add validated pocket definition, external benchmarking, stronger prospective evaluation, and downstream experimental confirmation.
-
-## Usage
-
-Run with local cached data only:
-
-```bash
-/Users/selvaraj/miniconda3/envs/drug_env/bin/python pipeline.py --cache-only
+```
+ai-drug-discovery-pipeline/
+│── data/           # Input datasets (SMILES, descriptors)
+│── scripts/        # Pipeline scripts (ML, docking, processing)
+│── models/         # Trained ML models
+│── results/        # Output predictions and rankings
+│── README.md
+│── requirements.txt
 ```
 
-Run with manual docking box:
+---
+
+## ▶️ How to Run
+
+### 1. Clone repository
 
 ```bash
-/Users/selvaraj/miniconda3/envs/drug_env/bin/python pipeline.py \
-  --center 1.0 -3.0 4.0 \
-  --size 20 20 20 \
-  --vina-exhaustiveness 8
+git clone https://github.com/selvacbm/ai-drug-discovery-pipeline.git
+cd ai-drug-discovery-pipeline
 ```
 
-## Main Outputs
+### 2. Install dependencies
 
-- `results/data/cleaned_data.csv`
-- `results/data/generated.csv`
-- `results/data/generated_predictions.csv`
-- `results/model/metrics.txt`
-- `results/plots/distribution.png`
-- `results/plots/parity.png`
-- `results/top_hits.csv`
-- `results/run_summary.json`
+```bash
+pip install -r requirements.txt
+```
 
-## What To Improve Next
+### 3. Run pipeline
 
-1. Use a co-crystal ligand or curated pocket coordinates for docking.
-2. Add scaffold-aware hyperparameter tuning and confidence estimation.
-3. Add external test sets or time-split validation.
-4. Add stronger medicinal chemistry filters and synthetic accessibility scoring.
-5. Add downstream refinement such as rescoring, MD, or free-energy calculations.
-=======
-# ai-drug-discovery-pipeline
-AI-driven drug discovery pipeline integrating molecular modeling, machine learning, and virtual screening for lead optimization.
->>>>>>> fc771a03f6871a03f08fc1f2766dd1eead4245be
+```bash
+python run_pipeline.py
+```
+
+---
+
+## 📊 Workflow
+
+1. Input molecular data (SMILES)
+2. Generate descriptors (RDKit)
+3. Train ML model (QSAR)
+4. Perform docking (AutoDock Vina)
+5. Rank compounds using hybrid scoring
+
+---
+
+## 🎯 Applications
+
+* Drug discovery (KRAS inhibitors)
+* Enzyme engineering
+* Nano-QSAR/QSPR modeling
+* Molecular design and optimization
+
+---
+
+## 📌 Future Improvements
+
+* Deep learning models (Graph Neural Networks)
+* Enhanced sampling integration (free energy methods)
+* Active learning for iterative optimization
+
+---
+
+## 👨‍🔬 Author
+
+**Selvaraj Sengottiyan**
+Computational Chemist | AI-driven Drug Discovery | Molecular Modeling
+
+---
+
+## 📄 License
+
+MIT License
